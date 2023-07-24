@@ -14,7 +14,7 @@ end
 
 These pages serve as the official documentation for the `Rocket.jl` Julia package.
 
-The purpose of this package is to implement the Rocket method in Julia.
+The purpose of this package is to implement the [Rocket](https://doi.org/10.1007/s10618-020-00701-z) method in Julia.
 
 If you wish to contribute to the project, please see the [Contributing](@ref) guide.
 The public API is listed in the [Index](@ref main-index), while the internal API is listed in the [Developer Index](@ref dev-main-index).
@@ -41,6 +41,33 @@ Depth = 1
 This package is developed and maintained by [Sasha Petrenko](https://github.com/AP6YC) with sponsorship by the [Applied Computational Intelligence Laboratory (ACIL)](https://acil.mst.edu/).
 
 If you simply have suggestions for improvement, Sasha Petrenko (<petrenkos@mst.edu>) is the current developer and maintainer of the `Rocket.jl` package, so please feel free to reach out with thoughts and questions.
+
+
+The original paper is authored by:
+
+- Angus Dempster
+- Francois Petitjean
+- Geoff Webb
+
+The links for the original work are:
+
+- Papers:
+  - [Journal article](https://github.com/angus924/rocket) ([DOI](https://doi.org/10.1007/s10618-020-00701-z))
+  - [Preprint](https://arxiv.org/abs/1910.13051)
+- Software:
+  - [rocket](https://github.com/angus924/rocket)
+
+The bibtex entry for the original paper is:
+
+```bibtex
+@article{dempster_etal_2020,
+    author  = {Dempster, Angus and Petitjean, Francois and Webb, Geoffrey I},
+    title   = {ROCKET: Exceptionally fast and accurate time classification using random convolutional kernels},
+    year    = {2020},
+    journal = {Data Mining and Knowledge Discovery},
+    doi     = {https://doi.org/10.1007/s10618-020-00701-z}
+}
+```
 
 ### Icons
 

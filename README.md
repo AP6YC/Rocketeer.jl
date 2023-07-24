@@ -19,7 +19,7 @@ TODO
 
 ### Authors
 
-This package is programmed by:
+This Julia package is programmed by:
 
 - Sasha Petrenko <petrenkos@mst.edu> @AP6YC
 
@@ -28,6 +28,14 @@ The original paper is authored by:
 - Angus Dempster
 - Francois Petitjean
 - Geoff Webb
+
+The links for the original work are:
+
+- Papers:
+  - [Journal article](https://github.com/angus924/rocket) ([DOI](https://doi.org/10.1007/s10618-020-00701-z))
+  - [Preprint](https://arxiv.org/abs/1910.13051)
+- Software:
+  - [rocket](https://github.com/angus924/rocket)
 
 The bibtex entry for the original paper is:
 
@@ -40,11 +48,6 @@ The bibtex entry for the original paper is:
     doi     = {https://doi.org/10.1007/s10618-020-00701-z}
 }
 ```
-
-The links for the preprint and its DOI are:
-
-- [preprint](https://arxiv.org/abs/1910.13051)
-- [DOI](https://doi.org/10.1007/s10618-020-00701-z)
 
 ### Icons
 
