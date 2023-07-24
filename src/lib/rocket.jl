@@ -131,7 +131,9 @@ function RocketModule(input_length::Integer, n_kernels::Integer)
 end
 
 """
-Empty constructor for the RocketModule object.
+Empty constructor for a [`RocketModule`](@ref).
+
+This uses the default values `input_length=5` and `n_kernels=100`.
 
 $(DOCSTRING_ATTRIBUTION)
 """
