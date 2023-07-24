@@ -1,0 +1,4 @@
+name = "Rocket"
+uuid = "cd2bf0ef-9c5b-4f33-84af-6a5ab213bc75"
+authors = ["Sasha Petrenko <sap625@umsystem.edu>"]
+version = "0.1.0"
