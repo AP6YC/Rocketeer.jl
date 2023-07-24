@@ -54,7 +54,7 @@ $(DOCSTRING_ATTRIBUTION)
 """
 struct RocketKernel
     """
-    The length of the features.
+    The length of the kernel.
     """
     length::Int
 
@@ -84,12 +84,21 @@ Structure containing a vector of [`RocketKernel`](@ref).
 
 $(DOCSTRING_ATTRIBUTION)
 """
-mutable struct RocketModule
+struct RocketModule
+    """
+    The input length used to generate the [`RocketKernel`](@ref)s.
+    """
+    input_length::Int
+
     """
     The list of [`RocketKernel`](@ref)s constituting a full Rocket module.
     """
     kernels::Vector{RocketKernel}
 end
+
+# -----------------------------------------------------------------------------
+# CONSTRUCTORS
+# -----------------------------------------------------------------------------
 
 """
 Create a new RocketModule structure, requiring feature length and the number of kernels.
@@ -127,7 +136,10 @@ function RocketModule(input_length::Integer, n_kernels::Integer)
     end
 
     # Return the constructed Rocket module
-    return RocketModule(kernels)
+    return RocketModule(
+        input_length,
+        kernels,
+    )
 end
 
 """
@@ -143,7 +155,7 @@ function RocketModule()
 end
 
 # -----------------------------------------------------------------------------
-# METHODS
+# FUNCTIONS
 # -----------------------------------------------------------------------------
 
 """
@@ -220,4 +232,31 @@ Load and return a [`RocketModule`](@ref) with existing parameters from a `.jld2`
 function load_rocket(filepath::AbstractString="rocket.jld2")
     # Use the JLD2 load_object for simplicity
     return load_object(filepath)
+end
+
+# -----------------------------------------------------------------------------
+# BASE.SHOW OVERLOADS
+# -----------------------------------------------------------------------------
+
+"""
+Overload of the show function for [`RocketKernel`](@ref).
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `kernel::RocketKernel`: the [`RocketKernel`](@ref) to print/display.
+"""
+function Base.show(io::IO, kernel::RocketKernel)
+    print(io, "$(typeof(kernel))")
+end
+
+"""
+Overload of the show function for [`RocketModule`](@ref).
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `rocket::RocketModule`: the [`RocketModule`](@ref) to print/display.
+"""
+function Base.show(io::IO, rocket::RocketModule)
+    # print(io, "$(typeof(node))($(length(node.N)))")
+    print(io, "$(typeof(rocket))(input_length=$(rocket.input_length), n_kernels=$(length(rocket.kernels)))")
 end
