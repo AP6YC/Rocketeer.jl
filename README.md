@@ -35,7 +35,7 @@ The links for the original work are:
   - [Journal article](https://github.com/angus924/rocket) ([DOI](https://doi.org/10.1007/s10618-020-00701-z))
   - [Preprint](https://arxiv.org/abs/1910.13051)
 - Software:
-  - [rocket](https://github.com/angus924/rocket)
+  - [rocket](https://github.com/angus924/rocket) (Python)
 
 The bibtex entry for the original paper is:
 
