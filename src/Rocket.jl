@@ -29,6 +29,7 @@ module Rocket
 # Full usings (which supports comma-separated import notation)
 using
     DocStringExtensions,
+    Pkg,
     Random,
     NumericalTypeAliases
 
@@ -50,6 +51,8 @@ include("lib/lib.jl")
 
 # Export relevant names
 export
+    # Constants
+    ROCKET_VERSION,
 
     # Structs
     RocketKernel,
