@@ -1,3 +1,10 @@
+"""
+    rocket.jl
+
+# Description
+Main file implementing the types and function for the Rocket method.
+"""
+
 # -----------------------------------------------------------------------------
 # CONSTANTS
 # -----------------------------------------------------------------------------
@@ -5,7 +12,7 @@
 """
 Common docstring: description of attribution for the Rocket module for inclusion in relevant docstrings.
 """
-DOCSTRING_ATTRIBUTION = """
+const DOCSTRING_ATTRIBUTION = """
 # Attribution
 
 ## Programmer
@@ -42,6 +49,8 @@ DOCSTRING_ATTRIBUTION = """
 
 """
 Structure containing information about one rocket kernel.
+
+$(DOCSTRING_ATTRIBUTION)
 """
 struct RocketKernel
     """
@@ -73,33 +82,7 @@ end
 """
 Structure containing a vector of rocket kernels.
 
-# Attribution
-
-## Programmer
-
-- Sasha Petrenko <petrenkos@mst.edu> @AP6YC
-
-## Original Authors
-
-- Angus Dempster
-- Francois Petitjean
-- Geoff Webb
-
-## Bibtex Entry
-
-```bibtex
-@article{dempster_etal_2020,
-    author  = {Dempster, Angus and Petitjean, Francois and Webb, Geoffrey I},
-    title   = {ROCKET: Exceptionally fast and accurate time classification using random convolutional kernels},
-    year    = {2020},
-    journal = {Data Mining and Knowledge Discovery},
-    doi     = {https://doi.org/10.1007/s10618-020-00701-z}
-}
-```
-
-## Arxiv Preprint Link
-
-https://arxiv.org/abs/1910.13051 (preprint)
+$(DOCSTRING_ATTRIBUTION)
 """
 mutable struct RocketModule
     """
@@ -114,6 +97,8 @@ Create a new RocketModule structure, requiring feature length and the number of 
 # Arguments
 - `input_length::Integer`: the desired length of the kernel features.
 - `n_kernels::Integer`: the desired number of kernels to generate.
+
+$(DOCSTRING_ATTRIBUTION)
 """
 function RocketModule(input_length::Integer, n_kernels::Integer)
     # Declare our candidate kernel lengths
@@ -146,6 +131,8 @@ end
 
 """
 Empty constructor for the RocketModule object.
+
+$(DOCSTRING_ATTRIBUTION)
 """
 function RocketModule()
     # Create a default

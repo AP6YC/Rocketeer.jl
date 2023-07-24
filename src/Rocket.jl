@@ -1,34 +1,14 @@
 """
-Main module for the `Rocket.jl` method.
+    Rocket.jl
 
-# Attribution
+# Description
+Main file implementing the `Rocket` module.
+"""
 
-## Programmer
+"""
+Main module for the `Rocket.jl` package.
 
-- Sasha Petrenko <petrenkos@mst.edu> @AP6YC
-
-## Original Authors
-
-- Angus Dempster
-- Francois Petitjean
-- Geoff Webb
-
-## Bibtex Entry
-
-```bibtex
-@article{dempster_etal_2020,
-    author  = {Dempster, Angus and Petitjean, Francois and Webb, Geoffrey I},
-    title   = {ROCKET: Exceptionally fast and accurate time classification using random convolutional kernels},
-    year    = {2020},
-    journal = {Data Mining and Knowledge Discovery},
-    doi     = {https://doi.org/10.1007/s10618-020-00701-z}
-}
-```
-
-## Citation Links
-
-- [preprint](https://arxiv.org/abs/1910.13051)
-- [DOI](https://doi.org/10.1007/s10618-020-00701-z)
+$(DOCSTRING_ATTRIBUTION)
 
 # Imports
 
