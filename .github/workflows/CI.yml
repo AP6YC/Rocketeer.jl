@@ -61,8 +61,6 @@ jobs:
             ${{ runner.os }}-${{ matrix.arch }}-test-
             ${{ runner.os }}-${{ matrix.arch }}-
             ${{ runner.os }}-
-      - name: Install scikit-learn
-        run: pip install scikit-learn
       - uses: julia-actions/julia-buildpkg@latest
       - run: |
           git config --global user.name Tester
