@@ -42,7 +42,6 @@ This package is developed and maintained by [Sasha Petrenko](https://github.com/
 
 If you simply have suggestions for improvement, Sasha Petrenko (<petrenkos@mst.edu>) is the current developer and maintainer of the `Rocket.jl` package, so please feel free to reach out with thoughts and questions.
 
-
 The original paper is authored by:
 
 - Angus Dempster
@@ -52,7 +51,7 @@ The original paper is authored by:
 The links for the original work are:
 
 - Papers:
-  - [Journal article](https://github.com/angus924/rocket) ([DOI](https://doi.org/10.1007/s10618-020-00701-z))
+  - [Journal article](https://link.springer.com/article/10.1007/s10618-020-00701-z) ([DOI](https://doi.org/10.1007/s10618-020-00701-z))
   - [Preprint](https://arxiv.org/abs/1910.13051)
 - Software:
   - [rocket](https://github.com/angus924/rocket)
