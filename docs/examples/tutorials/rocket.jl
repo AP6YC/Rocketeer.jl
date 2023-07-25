@@ -18,10 +18,13 @@
 
 using Rocket
 
-# Lets also declare a file name for saving the Rocket kernels
+# Lets also declare a file name for saving the Rocket kernels along with some other script variables
 
 ## Save file name
 filepath = "my_rocket"
+## Rocket and data hyper parameters
+input_length = 10
+n_kernels = 200
 
 # ## Create a `RocketModule`
 
@@ -33,16 +36,32 @@ filepath = "my_rocket"
 my_rocket = RocketModule()
 
 ## Specify the hyperparameters
-my_specific_rocket = RocketModule(10, 200)
+my_specific_rocket = RocketModule(input_length, n_kernels)
 
-# Save the module to the filepath
-Rocket.save_rocket(my_rocket, filepath)
+# We can save the Rocket kernels for later use:
 
-# Load the rocket module
-my_new_rocket = Rocket.load_rocket(filepath)
+## Save the module to the filepath
+save_rocket(my_rocket, filepath)
 
-# Delete the saved file
+# and we can load them back up into a new object:
+
+## Load the rocket module
+my_new_rocket = load_rocket(filepath)
+
+# ## Extract Kernel Features
+
+# Lets generate some random raw input data for applying the kernels to:
+
+X = rand(input_length)
+
+# and apply the kernels on that data to extract a set of features:
+
+kernel_features = apply_kernels(my_new_rocket, X)
+
+# And voila, it's as easy as that!
+# We have some features to use for analysis or otherwise some good old time series classification with other machine learning models.
+
+# Just to make sure to be thorough, we sill end this script by deleting the generated rocket save file.
+
+## Delete the saved file
 rm(filepath)
-
-# !!! note
-#     This example is in development.
