@@ -48,13 +48,13 @@ const DOCSTRING_ATTRIBUTION = """
 # -----------------------------------------------------------------------------
 
 """
-Structure containing information about one rocket kernel.
+Structure containing information about one Rocket kernel.
 
 $(DOCSTRING_ATTRIBUTION)
 """
 struct RocketKernel
     """
-    The length of the features.
+    The length of the kernel.
     """
     length::Int
 
@@ -80,16 +80,25 @@ struct RocketKernel
 end
 
 """
-Structure containing a vector of rocket kernels.
+Structure containing a vector of [`RocketKernel`](@ref).
 
 $(DOCSTRING_ATTRIBUTION)
 """
-mutable struct RocketModule
+struct RocketModule
     """
-    The list of Rocket kernels constituting a full Rocket module.
+    The input length used to generate the [`RocketKernel`](@ref)s.
+    """
+    input_length::Int
+
+    """
+    The list of [`RocketKernel`](@ref)s constituting a full Rocket module.
     """
     kernels::Vector{RocketKernel}
 end
+
+# -----------------------------------------------------------------------------
+# CONSTRUCTORS
+# -----------------------------------------------------------------------------
 
 """
 Create a new RocketModule structure, requiring feature length and the number of kernels.
@@ -126,11 +135,17 @@ function RocketModule(input_length::Integer, n_kernels::Integer)
         push!(kernels, _kernel)
     end
 
-    RocketModule(kernels)
+    # Return the constructed Rocket module
+    return RocketModule(
+        input_length,
+        kernels,
+    )
 end
 
 """
-Empty constructor for the RocketModule object.
+Empty constructor for a [`RocketModule`](@ref).
+
+This uses the default values `input_length=5` and `n_kernels=100`.
 
 $(DOCSTRING_ATTRIBUTION)
 """
@@ -140,15 +155,15 @@ function RocketModule()
 end
 
 # -----------------------------------------------------------------------------
-# METHODS
+# FUNCTIONS
 # -----------------------------------------------------------------------------
 
 """
-Apply a single RocketModule kernel to the sequence x.
+Apply a single [`RocketKernel`](@ref) to the sequence `x`.
 
 # Arguments
-- `kernel::RocketKernel`: rocket kernel used for computing features.
-- `x::RealVector`: data sequence for computing rocket features.
+- `kernel::RocketKernel`: the [`RocketKernel`](@ref) used for computing features.
+- `x::RealVector`: data sequence for computing Rocket features.
 """
 function apply_kernel(kernel::RocketKernel, x::RealVector)
     input_length = length(x)
@@ -174,7 +189,7 @@ function apply_kernel(kernel::RocketKernel, x::RealVector)
 end
 
 """
-Run a vector of rocket kernels along a sequence x.
+Run a vector of [`RocketKernel`](@ref)s along a sequence `x`.
 
 # Arguments
 - `rocket::RocketModule`: rocket module containing many kernels for processing.
@@ -197,24 +212,51 @@ function apply_kernels(rocket::RocketModule, x::RealVector)
 end
 
 """
-Save the rocket parameters to a .jld2 file.
+Save the [`RocketModule`](@ref) parameters to a `.jld2` file.
 
 # Arguments
-`rocket::RocketModule`: rocket module to save.
-`filepath::String`: path to .jld2 for saving rocket parameters. Defaults to rocket.jld2.
+`rocket::RocketModule`: the [`RocketModule`](@ref) to save.
+`filepath::AbstractString`: default `rocket.jld2`, path to `.jld2` for saving rocket parameters.
 """
-function save_rocket(rocket::RocketModule, filepath::String="rocket.jld2")
+function save_rocket(rocket::RocketModule, filepath::AbstractString="rocket.jld2")
     # Use the JLD2 save_object for simplicity
     save_object(filepath, rocket)
 end
 
 """
-Load and return a rocket module with existing parameters from a .jld2 file.
+Load and return a [`RocketModule`](@ref) with existing parameters from a `.jld2` file.
 
 # Arguments
-`filepath::String`: path to .jld2 containing rocket parameters. Defaults to rocket.jld2.
+`filepath::AbstractString`: default `rocket.jld2`, path to the `.jld2` containing rocket parameters.
 """
-function load_rocket(filepath::String="rocket.jld2")
+function load_rocket(filepath::AbstractString="rocket.jld2")
     # Use the JLD2 load_object for simplicity
     return load_object(filepath)
+end
+
+# -----------------------------------------------------------------------------
+# BASE.SHOW OVERLOADS
+# -----------------------------------------------------------------------------
+
+"""
+Overload of the show function for [`RocketKernel`](@ref).
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `kernel::RocketKernel`: the [`RocketKernel`](@ref) to print/display.
+"""
+function Base.show(io::IO, kernel::RocketKernel)
+    print(io, "$(typeof(kernel))")
+end
+
+"""
+Overload of the show function for [`RocketModule`](@ref).
+
+# Arguments
+- `io::IO`: the current IO stream.
+- `rocket::RocketModule`: the [`RocketModule`](@ref) to print/display.
+"""
+function Base.show(io::IO, rocket::RocketModule)
+    # print(io, "$(typeof(node))($(length(node.N)))")
+    print(io, "$(typeof(rocket))(input_length=$(rocket.input_length), n_kernels=$(length(rocket.kernels)))")
 end
