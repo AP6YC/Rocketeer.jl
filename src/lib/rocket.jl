@@ -150,8 +150,11 @@ This uses the default values `input_length=5` and `n_kernels=100`.
 $(DOCSTRING_ATTRIBUTION)
 """
 function RocketModule()
-    # Create a default
-    return RocketModule(5, 100)
+    # Create a default RocketModule
+    return RocketModule(
+        ROCKET_DEFAULT_INPUT_LENGTH,
+        ROCKET_DEFAULT_N_KERNELS,
+    )
 end
 
 # -----------------------------------------------------------------------------
