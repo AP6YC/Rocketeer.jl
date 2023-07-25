@@ -1,0 +1,82 @@
+name: CI
+# Run on master, tags, or any pull request
+on:
+# schedule:
+#   - cron: '0 2 * * *'  # Daily at 2 AM UTC (8 PM CST)
+  push:
+    branches: [main]
+    tags: ["*"]
+  pull_request:
+jobs:
+  test:
+    name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        version:
+          - "1.6"  # LTS
+          - "1"    # Latest Release
+        os:
+          - ubuntu-latest
+          # - macOS-latest
+          # - windows-latest
+        arch:
+          - x64
+          # - x86
+        exclude:
+          # Exclude 32-bit macOS due to Julia support
+          - os: macOS-latest
+            arch: x86
+          # - os: windows-latest
+          #   arch: x86
+        # include:
+        #   - os: ubuntu-latest
+        #     version: 1.5
+        #     arch: x64
+    env:
+      # Set this to download test data outside of repo
+      DATADEPS_ALWAYS_ACCEPT: true
+    steps:
+      # Cancel ongoing tests if pushing to branch again before the previous
+      # build is finished.
+      - name: Cancel ongoing tests for previous commits
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: actions/checkout@v3
+      - uses: julia-actions/setup-julia@v1
+        with:
+          version: ${{ matrix.version }}
+          arch: ${{ matrix.arch }}
+      - uses: actions/cache@v3
+        env:
+          cache-name: cache-artifacts
+        with:
+          path: ~/.julia/artifacts
+          key: ${{ runner.os }}-${{ matrix.arch }}-test-${{ env.cache-name }}-${{ hashFiles('**/Project.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.arch }}-test-${{ env.cache-name }}-
+            ${{ runner.os }}-${{ matrix.arch }}-test-
+            ${{ runner.os }}-${{ matrix.arch }}-
+            ${{ runner.os }}-
+      - name: Install scikit-learn
+        run: pip install scikit-learn
+      - uses: julia-actions/julia-buildpkg@latest
+      - run: |
+          git config --global user.name Tester
+          git config --global user.email te@st.er
+      - uses: julia-actions/julia-runtest@latest
+      - uses: julia-actions/julia-processcoverage@v1
+
+      - name: Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: lcov.info
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: lcov.info
