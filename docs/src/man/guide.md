@@ -5,21 +5,27 @@ To work with the `Rocket.jl` package, you should know:
 - [An overview of what this package is and does](@ref overview)
 - [How to install the package](@ref installation)
 - [How to create and use a `RocketModule`](@ref module)
-- [How to save and load](@ref save-load)
+- [How to save and load a `RocketModule`](@ref save-load)
 
 ## [Overview](@id overview)
 
 This package implements a module that generates a set of randomly distributed kernels for extracting features on a time series dataset for classification with some other machine learning method.
 It is based upon the work in [this paper](https://doi.org/10.1007/s10618-020-00701-z) and [this Python implementation](https://github.com/angus924/rocket), but it is not affiliated with these works or these original authors.
 
-> **What this package is**:
+---
+
+### **What this package is**
 
 A package for generating, applying, saving, and loading these random feature kernels.
 
-> **What this package is not**:
+---
+
+### **What this package is not**
 
 This package does not implement any machine learning (i.e., parameter updating) methods themselves for learning upon these feature on the back end, nor does it implement any data manipulation tools on the front end.
 These you are responsible depending upon your application ("batteries not included").
+
+---
 
 ## [Installation](@id installation)
 

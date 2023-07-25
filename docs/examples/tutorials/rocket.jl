@@ -23,7 +23,7 @@ using Rocket
 ## Save file name
 filepath = "my_rocket"
 ## Rocket and data hyper parameters
-input_length = 10
+input_length = 20
 n_kernels = 200
 
 # ## Create a `RocketModule`
@@ -41,12 +41,14 @@ my_specific_rocket = RocketModule(input_length, n_kernels)
 # We can save the Rocket kernels for later use:
 
 ## Save the module to the filepath
-save_rocket(my_rocket, filepath)
+save_rocket(my_specific_rocket, filepath)
 
 # and we can load them back up into a new object:
 
 ## Load the rocket module
 my_new_rocket = load_rocket(filepath)
+
+# We can see here that the we got back the same `RocketModule` as the one we created in `my_specific_rocket`.
 
 # ## Extract Kernel Features
 

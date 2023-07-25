@@ -99,3 +99,12 @@ Rocket.jl
 ├── Project.toml            // Julia: the Pkg.jl dependencies of the project.
 └── README.md               // Doc: the top-level readme for the project.
 ```
+
+### Type Aliases
+
+For convenience in when defining types and function signatures, this package uses the [`NumericalTypeAliases.jl`](https://github.com/AP6YC/NumericalTypeAliases.jl) package and the aliases therein.
+The documentation for the abstract and concrete types provided by `NumericalTypeAliases.jl` can be found [here](https://ap6yc.github.io/NumericalTypeAliases.jl/dev/).
+
+In this package, data samples are always `Real`-valued.
+
+This project does not currently test for the support of [arbitrary precision arithmetic](https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/#Arbitrary-Precision-Arithmetic) because learning algorithms *in general* do not have a significant need for precision.
