@@ -6,47 +6,6 @@ Main file implementing the types and function for the Rocket method.
 """
 
 # -----------------------------------------------------------------------------
-# CONSTANTS
-# -----------------------------------------------------------------------------
-
-"""
-Common docstring: description of attribution for the Rocket module for inclusion in relevant docstrings.
-"""
-const DOCSTRING_ATTRIBUTION = """
-# Attribution
-
-## Programmer
-
-- Sasha Petrenko <petrenkos@mst.edu> @AP6YC
-
-## Original Authors
-
-- Angus Dempster
-- Francois Petitjean
-- Geoff Webb
-
-## Bibtex Entry
-
-```bibtex
-@article{dempster_etal_2020,
-    author  = {Dempster, Angus and Petitjean, Francois and Webb, Geoffrey I},
-    title   = {ROCKET: Exceptionally fast and accurate time classification using random convolutional kernels},
-    year    = {2020},
-    journal = {Data Mining and Knowledge Discovery},
-    doi     = {https://doi.org/10.1007/s10618-020-00701-z}
-}
-```
-
-## Citation Links
-
-- Papers:
-    - [Journal article](https://link.springer.com/article/10.1007/s10618-020-00701-z) ([DOI](https://doi.org/10.1007/s10618-020-00701-z))
-    - [Preprint](https://arxiv.org/abs/1910.13051)
-- Software
-    - [rocket](https://github.com/angus924/rocket) (Python)
-"""
-
-# -----------------------------------------------------------------------------
 # STRUCTURES
 # -----------------------------------------------------------------------------
 
@@ -83,7 +42,7 @@ struct RocketKernel
 end
 
 """
-Structure containing a vector of [`RocketKernel`](@ref).
+Structure containing a vector of [`RocketKernel`](@ref)s.
 
 $(DOCSTRING_ATTRIBUTION)
 """
@@ -148,15 +107,15 @@ end
 """
 Empty constructor for a [`RocketModule`](@ref).
 
-This uses the default values `input_length=5` and `n_kernels=100`.
+This uses the default values `input_length=$(ROCKET_DEFAULT_INPUT_LENGTH)` and `n_kernels=$(ROCKET_DEFAULT_N_KERNELS)`.
 
 $(DOCSTRING_ATTRIBUTION)
 """
 function RocketModule()
     # Create a default RocketModule
     return RocketModule(
-        ROCKET_DEFAULT_INPUT_LENGTH,
-        ROCKET_DEFAULT_N_KERNELS,
+        ROCKET_DEFAULT_INPUT_LENGTH,    # input_length
+        ROCKET_DEFAULT_N_KERNELS,       # n_kernels
     )
 end
 
@@ -221,8 +180,8 @@ end
 Save the [`RocketModule`](@ref) parameters to a `.jld2` file.
 
 # Arguments
-`rocket::RocketModule`: the [`RocketModule`](@ref) to save.
-`filepath::AbstractString`: default `rocket.jld2`, path to `.jld2` for saving rocket parameters.
+- `rocket::RocketModule`: the [`RocketModule`](@ref) to save.
+- `filepath::AbstractString`: default `rocket.jld2`, path to `.jld2` for saving rocket parameters.
 """
 function save_rocket(rocket::RocketModule, filepath::AbstractString="rocket.jld2")
     # Use the JLD2 save_object for simplicity
@@ -233,7 +192,7 @@ end
 Load and return a [`RocketModule`](@ref) with existing parameters from a `.jld2` file.
 
 # Arguments
-`filepath::AbstractString`: default `rocket.jld2`, path to the `.jld2` containing rocket parameters.
+- `filepath::AbstractString`: default `rocket.jld2`, path to the `.jld2` containing rocket parameters.
 """
 function load_rocket(filepath::AbstractString="rocket.jld2")
     # Use the JLD2 load_object for simplicity
