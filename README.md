@@ -1,4 +1,4 @@
-# Rocket
+[![rocket-header](https://github.com/AP6YC/FileStorage/blob/main/Rocket/header.png?raw=true)][docs-dev-url]
 
 A [Julia][julialang] implementation of the [Rocket][rocket-doi] method of using random feature kernels for time series classification.
 
@@ -35,12 +35,11 @@ This project is not programmed by the original authors of the original paper; pl
 
 ## Table of Contents
 
-- [Rocket](#rocket)
-  - [Table of Contents](#table-of-contents)
-  - [Usage](#usage)
-  - [Attribution](#attribution)
-    - [Authors](#authors)
-    - [Icons](#icons)
+- [Table of Contents](#table-of-contents)
+- [Usage](#usage)
+- [Attribution](#attribution)
+  - [Authors](#authors)
+  - [Icons](#icons)
 
 ## Usage
 

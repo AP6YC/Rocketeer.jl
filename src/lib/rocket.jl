@@ -39,8 +39,11 @@ const DOCSTRING_ATTRIBUTION = """
 
 ## Citation Links
 
-- [preprint](https://arxiv.org/abs/1910.13051)
-- [DOI](https://doi.org/10.1007/s10618-020-00701-z)
+- Papers:
+    - [Journal article](https://link.springer.com/article/10.1007/s10618-020-00701-z) ([DOI](https://doi.org/10.1007/s10618-020-00701-z))
+    - [Preprint](https://arxiv.org/abs/1910.13051)
+- Software
+    - [rocket](https://github.com/angus924/rocket) (Python)
 """
 
 # -----------------------------------------------------------------------------

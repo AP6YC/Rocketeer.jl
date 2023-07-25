@@ -4,11 +4,7 @@ DocTestSetup = quote
 end
 ```
 
-```@raw html
-<img src="assets/logo.png" width="300">
-```
-
-# Rocket.jl
+![header](assets/downloads/header.png)
 
 ---
 
