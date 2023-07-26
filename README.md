@@ -2,7 +2,7 @@
 
 A [Julia][julialang] implementation of the [Rocket][rocket-doi] method of using random feature kernels for time series classification.
 
-This project is not programmed by the original authors of the original paper; please see the [Attribution](#attribution) section for more details.
+This project is not programmed by the original authors of the original paper; please see the [Attribution](#attribution) section for more details on the original paper and software.
 
 | **Documentation** | **Coverage** | **CI Status** |
 |:-----------------:|:------------:|:-------------:|
