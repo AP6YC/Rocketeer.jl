@@ -10,44 +10,44 @@ my_rocket = RocketModule()
 my_specific_rocket = RocketModule(input_length, n_kernels)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">RocketModule(input_length=20, n_kernels=200)</code></pre><p>We can save the Rocket kernels for later use:</p><pre><code class="language-julia hljs"># Save the module to the filepath
 save_rocket(my_specific_rocket, filepath)</code></pre><p>and we can load them back up into a new object:</p><pre><code class="language-julia hljs"># Load the rocket module
 my_new_rocket = load_rocket(filepath)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">RocketModule(input_length=20, n_kernels=200)</code></pre><p>We can see here that the we got back the same <code>RocketModule</code> as the one we created in <code>my_specific_rocket</code>.</p><h2 id="Extract-Kernel-Features"><a class="docs-heading-anchor" href="#Extract-Kernel-Features">Extract Kernel Features</a><a id="Extract-Kernel-Features-1"></a><a class="docs-heading-anchor-permalink" href="#Extract-Kernel-Features" title="Permalink"></a></h2><p>Lets generate some random raw input data for applying the kernels to:</p><pre><code class="language-julia hljs">X = rand(input_length)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">20-element Vector{Float64}:
- 0.835110383228771
- 0.987568347511451
- 0.6184780190339098
- 0.7754726547581678
- 0.3608017441103083
- 0.9809728002555055
- 0.5493904675592615
- 0.5152436194304267
- 0.49284782942119376
- 0.183512152664417
- 0.00750719083432283
- 0.3330373768032271
- 0.24562690500349516
- 0.31026400517940456
- 0.41421562573136816
- 0.39459613046015873
- 0.054176488774763
- 0.6431654535033251
- 0.27313416752733033
- 0.3011363100536093</code></pre><p>and apply the kernels on that data to extract a set of features:</p><pre><code class="language-julia hljs">kernel_features = apply_kernels(my_new_rocket, X)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">200×2 Matrix{Float64}:
- 0.15   0.187589
- 0.2    0.364398
- 1.05   1.60965
- 0.2    0.292084
- 0.85   0.989358
- 0.65   2.00111
- 1.05   4.61319
- 0.15   0.128653
- 0.8    2.45294
- 0.0   -0.0680735
- ⋮     
- 1.05   2.89942
- 0.15   1.67805
- 0.45   0.416488
- 0.0   -0.0717268
- 1.05   3.53183
- 0.65   0.915124
- 1.05   1.76764
- 1.05   3.43343
- 0.0   -0.425244</code></pre><p>And voila, it&#39;s as easy as that! We have some features to use for analysis or otherwise some good old time series classification with other machine learning models.</p><p>Just to make sure to be thorough, we sill end this script by deleting the generated rocket save file.</p><pre><code class="language-julia hljs"># Delete the saved file
-rm(filepath)</code></pre><hr/><p><em>This page was generated using <a href="https://github.com/johnnychen94/DemoCards.jl">DemoCards.jl</a> and <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Wednesday 26 July 2023 16:04">Wednesday 26 July 2023</span>. Using Julia version 1.9.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+ 0.31566869326769775
+ 0.12848600195803783
+ 0.14612739143067133
+ 0.15717277447692457
+ 0.1589388683773434
+ 0.9083939201857272
+ 0.43798592860907815
+ 0.14084992597169732
+ 0.7401641693442103
+ 0.5586277582192997
+ 0.2501218306644588
+ 0.8870432063468138
+ 0.15094222349533482
+ 0.8307223963153285
+ 0.018542286476836756
+ 0.5944977277328375
+ 0.997952081687963
+ 0.6197860046213516
+ 0.042700521750484
+ 0.12255988595440659</code></pre><p>and apply the kernels on that data to extract a set of features:</p><pre><code class="language-julia hljs">kernel_features = apply_kernels(my_new_rocket, X)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">200×2 Matrix{Float64}:
+ 0.25        0.451229
+ 0.7         2.53016
+ 0.55        1.84296
+ 0.85        3.89736
+ 0.2         0.276177
+ 0.0        -0.559797
+ 0.9         3.09401
+ 1.05        0.972579
+ 0.2         0.2265
+ 0.714286    2.98997
+ ⋮          
+ 1.05        6.33071
+ 0.85        6.03424
+ 0.5         0.747828
+ 0.0714286   0.079805
+ 0.0        -0.502467
+ 0.85        2.01526
+ 0.3         0.48076
+ 0.0714286   0.730831
+ 1.05        1.34545</code></pre><p>And voila, it&#39;s as easy as that! We have some features to use for analysis or otherwise some good old time series classification with other machine learning models.</p><p>Just to make sure to be thorough, we sill end this script by deleting the generated rocket save file.</p><pre><code class="language-julia hljs"># Delete the saved file
+rm(filepath)</code></pre><hr/><p><em>This page was generated using <a href="https://github.com/johnnychen94/DemoCards.jl">DemoCards.jl</a> and <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Wednesday 26 July 2023 21:02">Wednesday 26 July 2023</span>. Using Julia version 1.9.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
