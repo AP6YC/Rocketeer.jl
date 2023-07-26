@@ -1,2 +1,9 @@
 build/
 site/
+
+# DemoCards intermediate compilation directories
+src/democards/
+src/examples/
+
+# Downloads folder for files grabbed during docs generation
+src/assets/downloads/

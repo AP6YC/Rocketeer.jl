@@ -53,6 +53,58 @@ if haskey(ENV, "DOCSARGS")
     end
 end
 
+
+# -----------------------------------------------------------------------------
+# DOWNLOAD LARGE ASSETS
+# -----------------------------------------------------------------------------
+
+# Point to the raw FileStorage location on GitHub
+top_url = raw"https://media.githubusercontent.com/media/AP6YC/FileStorage/main/Rocket/"
+
+# List all of the files that we need to use in the docs
+files = [
+    "header.png",
+]
+
+# Make a destination for the files, accounting for when folder is AdaptiveResonance.jl
+assets_folder = joinpath("src", "assets")
+if basename(pwd()) == PROJECT_NAME || basename(pwd()) == PROJECT_NAME * ".jl"
+    assets_folder = joinpath(DOCS_NAME, assets_folder)
+end
+
+download_folder = joinpath(assets_folder, "downloads")
+mkpath(download_folder)
+download_list = []
+
+# Download the files one at a time
+for file in files
+    # Point to the correct file that we wish to download
+    src_file = top_url * file * "?raw=true"
+    # Point to the correct local destination file to download to
+    dest_file = joinpath(download_folder, file)
+    # Add the file to the list that we will append to assets
+    push!(download_list, dest_file)
+    # If the file isn't already here, download it
+    if !isfile(dest_file)
+        download(src_file, dest_file)
+        @info "Downloaded $dest_file, isfile: $(isfile(dest_file))"
+    else
+        @info "File already exists: $dest_file"
+    end
+end
+
+# Downloads debugging
+detailed_logger = Logging.ConsoleLogger(stdout, Info, show_limited=false)
+with_logger(detailed_logger) do
+    @info "Current working directory is $(pwd())"
+    @info "Assets folder is:" readdir(assets_folder, join=true)
+    # full_download_folder = joinpath(pwd(), "src", "assets", "downloads")
+    @info "Downloads folder exists: $(isdir(download_folder))"
+    if isdir(download_folder)
+        @info "Downloads folder contains:" readdir(download_folder, join=true)
+    end
+end
+
 # -----------------------------------------------------------------------------
 # GENERATE
 # -----------------------------------------------------------------------------
@@ -117,19 +169,3 @@ deploydocs(
     devbranch="develop",
     # push_preview = should_push_preview(),
 )
-
-# using Documenter
-# using Rocket
-
-# makedocs(
-#     sitename = "Rocket",
-#     format = Documenter.HTML(),
-#     modules = [Rocket]
-# )
-
-# Documenter can also automatically deploy documentation to gh-pages.
-# See "Hosting Documentation" and deploydocs() in the Documenter manual
-# for more information.
-#=deploydocs(
-    repo = "<repository url>"
-)=#

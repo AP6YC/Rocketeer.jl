@@ -4,11 +4,7 @@ DocTestSetup = quote
 end
 ```
 
-```@raw html
-<img src="assets/logo.png" width="300">
-```
-
-# Rocket.jl
+![header](assets/downloads/header.png)
 
 ---
 
@@ -54,7 +50,7 @@ The links for the original work are:
   - [Journal article](https://link.springer.com/article/10.1007/s10618-020-00701-z) ([DOI](https://doi.org/10.1007/s10618-020-00701-z))
   - [Preprint](https://arxiv.org/abs/1910.13051)
 - Software:
-  - [rocket](https://github.com/angus924/rocket)
+  - [rocket](https://github.com/angus924/rocket) (Python)
 
 The bibtex entry for the original paper is:
 
