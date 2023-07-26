@@ -1,0 +1,31 @@
+name = "Rocket"
+uuid = "cd2bf0ef-9c5b-4f33-84af-6a5ab213bc75"
+authors = ["Sasha Petrenko <sap625@umsystem.edu>"]
+description = "A Julia package for the Rocket method of using random feature kernels for time series classification."
+version = "0.1.0"
+
+[deps]
+DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
+JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
+NumericalTypeAliases = "be9b823e-291e-41a1-b8ce-806204e78f92"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
+PrecompileSignatures = "91cefc8d-f054-46dc-8f8c-26e11d7c5411"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+
+[compat]
+DocStringExtensions = "0.9"
+JLD2 = "0.4"
+NumericalTypeAliases = "0.2"
+PrecompileSignatures = "3"
+StatsBase = "0.34"
+Pkg = "1"
+julia = "1"
+
+[extras]
+SafeTestsets = "1bc83da4-3b8d-516f-aca4-4fe02f6d838f"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"
+
+[targets]
+test = ["Test", "SafeTestsets", "Logging"]
