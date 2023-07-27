@@ -36,7 +36,7 @@ Depth = 1
 
 ### Authors
 
-This package is a [`Julia`](https://julialang.org/) implementation of the [Rocketeer](https://doi.org/10.1007/s10618-020-00701-z) method.
+This package is a [`Julia`](https://julialang.org/) implementation of the [Rocket](https://doi.org/10.1007/s10618-020-00701-z) method.
 
 This package itself is developed and maintained by [Sasha Petrenko](https://github.com/AP6YC) with sponsorship by the [Applied Computational Intelligence Laboratory (ACIL)](https://acil.mst.edu/).
 If you simply have suggestions for improvement, Sasha Petrenko (<petrenkos@mst.edu>) is the current developer and maintainer of the `Rocketeer.jl` package, so please feel free to reach out with thoughts and questions.
