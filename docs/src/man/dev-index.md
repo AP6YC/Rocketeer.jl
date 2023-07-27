@@ -1,6 +1,6 @@
 # [Developer Index](@id dev-main-index)
 
-This page lists the types and functions that are internal to the `Rocket.jl` package.
+This page lists the types and functions that are internal to the `Rocketeer.jl` package.
 Because they are not part of the public API, these names might change relatively frequently between versions and so should not be relied upon.
 
 All internal names are listed in the [Index](@ref dev-index), and each of these entries link to the docstrings in the [Docs](@ref dev-index-docs) section.
@@ -20,7 +20,7 @@ This section contains a list of internal names that link to their corresponding 
 
 ```@index
 Pages   = ["dev-index.md"]
-Modules = [Rocket]
+Modules = [Rocketeer]
 Order   = [:module]
 ```
 
@@ -28,7 +28,7 @@ Order   = [:module]
 
 ```@index
 Pages   = ["dev-index.md"]
-Modules = [Rocket]
+Modules = [Rocketeer]
 Order   = [:function]
 ```
 
@@ -36,7 +36,7 @@ Order   = [:function]
 
 ```@index
 Pages   = ["dev-index.md"]
-Modules = [Rocket]
+Modules = [Rocketeer]
 Order   = [:type]
 ```
 
@@ -44,7 +44,7 @@ Order   = [:type]
 
 ```@index
 Pages   = ["dev-index.md"]
-Modules = [Rocket]
+Modules = [Rocketeer]
 Order   = [:constant]
 ```
 
@@ -55,7 +55,7 @@ Documentation for all internal names are listed below.
 ### [Modules](@id dev-index-modules-docs)
 
 ```@autodocs
-Modules = [Rocket]
+Modules = [Rocketeer]
 Public  = false
 Order   = [:module]
 ```
@@ -63,7 +63,7 @@ Order   = [:module]
 ### [Functions](@id dev-index-functions-docs)
 
 ```@autodocs
-Modules = [Rocket]
+Modules = [Rocketeer]
 Public  = false
 Order   = [:function]
 ```
@@ -71,7 +71,7 @@ Order   = [:function]
 ### [Types](@id dev-index-types-docs)
 
 ```@autodocs
-Modules = [Rocket]
+Modules = [Rocketeer]
 Public  = false
 Order   = [:type]
 ```
@@ -79,7 +79,7 @@ Order   = [:type]
 ### [Constants](@id dev-index-constants-docs)
 
 ```@autodocs
-Modules = [Rocket]
+Modules = [Rocketeer]
 Public  = false
 Order   = [:constant]
 ```

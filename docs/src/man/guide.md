@@ -1,6 +1,6 @@
 # [Package Guide](@id package-guide)
 
-To work with the `Rocket.jl` package, you should know:
+To work with the `Rocketeer.jl` package, you should know:
 
 - [An overview of what this package is and does](@ref overview)
 - [How to install the package](@ref installation)
@@ -29,26 +29,26 @@ These you are responsible depending upon your application ("batteries not includ
 
 ## [Installation](@id installation)
 
-The `Rocket.jl` package can be installed using the Julia package manager.
+The `Rocketeer.jl` package can be installed using the Julia package manager.
 From the Julia REPL, type `]` to enter the Pkg REPL mode and run
 
 ```julia-repl
 julia> ]
-(@v1.9) pkg> add Rocket
+(@v1.9) pkg> add Rocketeer
 ```
 
 Alternatively, it can be added to your environment in a script with
 
 ```julia
 using Pkg
-Pkg.add("Rocket")
+Pkg.add("Rocketeer")
 ```
 
 If you wish to have the latest changes between releases, you can directly add the GitHub repo at an arbitrary branch (such as `develop`) as a dependency with
 
 ```julia-repl
 julia> ]
-(@v1.9) pkg> add https://github.com/AP6YC/Rocket.jl#develop
+(@v1.9) pkg> add https://github.com/AP6YC/Rocketeer.jl#develop
 ```
 
 ## [Instantiation and Usage](@id module)
@@ -57,10 +57,10 @@ After installation, load the package in a script in the usual Julia pattern (wit
 
 ```julia
 # `using` brings all exported names into this scope
-using Rocket
+using Rocketeer
 
 # `import` just brings the module name itself
-import Rocket
+import Rocketeer
 ```
 
 Create a `RocketModule` with the following hyperparameters:

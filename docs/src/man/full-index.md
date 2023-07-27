@@ -1,6 +1,6 @@
 # [Index](@id main-index)
 
-This page lists the core functions and types of the `Julia` component of the `Rocket.jl` package.
+This page lists the core functions and types of the `Julia` component of the `Rocketeer.jl` package.
 
 ## ["Table" of Contents](@id index-toc)
 
@@ -17,7 +17,7 @@ This section enumerates the names exported by the package, each of which links t
 
 ```@index
 Pages   = ["full-index.md"]
-Modules = [Rocket]
+Modules = [Rocketeer]
 Order   = [:module]
 ```
 
@@ -25,7 +25,7 @@ Order   = [:module]
 
 ```@index
 Pages   = ["full-index.md"]
-Modules = [Rocket]
+Modules = [Rocketeer]
 Order   = [:function]
 ```
 
@@ -33,7 +33,7 @@ Order   = [:function]
 
 ```@index
 Pages   = ["full-index.md"]
-Modules = [Rocket]
+Modules = [Rocketeer]
 Order   = [:type]
 ```
 
@@ -41,18 +41,18 @@ Order   = [:type]
 
 ```@index
 Pages   = ["full-index.md"]
-Modules = [Rocket]
+Modules = [Rocketeer]
 Order   = [:constant]
 ```
 
 ## [Docs](@id index-docs)
 
-This section lists the documentation for every exported name of the `Rocket` package.
+This section lists the documentation for every exported name of the `Rocketeer` package.
 
 ### [Modules](@id index-modules-docs)
 
 ```@autodocs
-Modules = [Rocket]
+Modules = [Rocketeer]
 Private = false
 Order   = [:module]
 ```
@@ -60,7 +60,7 @@ Order   = [:module]
 ### [Functions](@id index-functions-docs)
 
 ```@autodocs
-Modules = [Rocket]
+Modules = [Rocketeer]
 Private = false
 Order   = [:function]
 ```
@@ -68,7 +68,7 @@ Order   = [:function]
 ### [Types](@id index-types-docs)
 
 ```@autodocs
-Modules = [Rocket]
+Modules = [Rocketeer]
 Private = false
 Order   = [:type]
 ```
@@ -76,7 +76,7 @@ Order   = [:type]
 ### [Constants](@id index-constants-docs)
 
 ```@autodocs
-Modules = [Rocket]
+Modules = [Rocketeer]
 Private = false
 Order   = [:constant]
 ```
