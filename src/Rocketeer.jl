@@ -1,12 +1,12 @@
 """
-    Rocket.jl
+    Rocketeer.jl
 
 # Description
-Main file implementing the `Rocket` module.
+Main file implementing the `Rocketeer` module.
 """
 
 """
-Main module for the `Rocket.jl` package.
+Main module for the `Rocketeer.jl` package.
 
 $(DOCSTRING_ATTRIBUTION)
 
@@ -20,7 +20,7 @@ $(IMPORTS)
 The following names are exported and available when `using` the package:
 $(EXPORTS)
 """
-module Rocket
+module Rocketeer
 
 # -----------------------------------------------------------------------------
 # DEPENDENCIES
@@ -52,7 +52,7 @@ include("lib/lib.jl")
 # Export relevant names
 export
     # Constants
-    ROCKET_VERSION,
+    ROCKETEER_VERSION,
 
     # Structs
     RocketKernel,
@@ -69,6 +69,6 @@ export
 # -----------------------------------------------------------------------------
 
 # Precompile any concrete-type function signatures
-@precompile_signatures(Rocket)
+@precompile_signatures(Rocketeer)
 
 end

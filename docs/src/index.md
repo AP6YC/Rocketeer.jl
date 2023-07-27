@@ -1,6 +1,6 @@
 ```@meta
 DocTestSetup = quote
-    using Rocket, Dates
+    using Rocketeer, Dates
 end
 ```
 
@@ -8,7 +8,7 @@ end
 
 ---
 
-These pages serve as the official documentation for the `Rocket.jl` Julia package.
+These pages serve as the official documentation for the `Rocketeer.jl` Julia package.
 
 The purpose of this package is to implement the [Rocket](https://doi.org/10.1007/s10618-020-00701-z) method in the [Julia](https://julialang.org/) programming language.
 
@@ -36,10 +36,10 @@ Depth = 1
 
 ### Authors
 
-This package is a [`Julia`](https://julialang.org/) implementation of the [Rocket](https://doi.org/10.1007/s10618-020-00701-z) method.
+This package is a [`Julia`](https://julialang.org/) implementation of the [Rocketeer](https://doi.org/10.1007/s10618-020-00701-z) method.
 
 This package itself is developed and maintained by [Sasha Petrenko](https://github.com/AP6YC) with sponsorship by the [Applied Computational Intelligence Laboratory (ACIL)](https://acil.mst.edu/).
-If you simply have suggestions for improvement, Sasha Petrenko (<petrenkos@mst.edu>) is the current developer and maintainer of the `Rocket.jl` package, so please feel free to reach out with thoughts and questions.
+If you simply have suggestions for improvement, Sasha Petrenko (<petrenkos@mst.edu>) is the current developer and maintainer of the `Rocketeer.jl` package, so please feel free to reach out with thoughts and questions.
 
 The original paper is authored by:
 
@@ -84,6 +84,6 @@ The U.S. Government is authorized to reproduce and distribute reprints for Gover
 This documentation was built using [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl) with the following version and OS:
 
 ```@example
-using Rocket, Dates # hide
-println("Rocket v$(ROCKET_VERSION) docs built $(Dates.now()) with Julia $(VERSION) on $(Sys.KERNEL)") # hide
+using Rocketeer, Dates # hide
+println("Rocketeer v$(ROCKETEER_VERSION) docs built $(Dates.now()) with Julia $(VERSION) on $(Sys.KERNEL)") # hide
 ```

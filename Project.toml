@@ -1,6 +1,6 @@
-name = "Rocket"
-uuid = "cd2bf0ef-9c5b-4f33-84af-6a5ab213bc75"
-authors = ["Sasha Petrenko <sap625@umsystem.edu>"]
+name = "Rocketeer"
+uuid = "5e8e706b-2fa9-4c18-afb5-213c5db89150"
+authors = ["Sasha Petrenko <sap625@mst.edu>"]
 description = "A Julia package for the Rocket method of using random feature kernels for time series classification."
 version = "0.1.0"
 

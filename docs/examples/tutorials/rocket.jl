@@ -1,22 +1,22 @@
 # ---
-# title: Rocket Tutorial
+# title: Rocketeer Tutorial
 # id: rocket-tutorial
 # date: 2023-7-21
 # cover: ../assets/julialang_logo_icon.png
 # author: "[Sasha Petrenko](https://github.com/AP6YC)"
 # julia: 1.9
-# description: This demo provides a quick example of how to run the `Rocket.jl` package.
+# description: This demo provides a quick example of how to run the `Rocketeer.jl` package.
 # ---
 
 # ## Overview
 
-# This demo shows how to get started with `Rocket.jl`.
+# This demo shows how to get started with `Rocketeer.jl`.
 
 # ## Setup
 
 # First, we load the package in the usual manner with `using`
 
-using Rocket
+using Rocketeer
 
 # Lets also declare a file name for saving the Rocket kernels along with some other script variables
 

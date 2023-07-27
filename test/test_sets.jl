@@ -2,7 +2,7 @@
     test_sets.jl
 
 # Description
-The main collection of tests for the `Rocket.jl` package.
+The main collection of tests for the `Rocketeer.jl` package.
 This file loads common utilities and aggregates all other unit tests files.
 """
 
@@ -13,7 +13,7 @@ This file loads common utilities and aggregates all other unit tests files.
 ## Load the modules into the current context
 using
     JLD2,       # for saving and loading
-    Rocket      # this package
+    Rocketeer      # this package
 
 # -----------------------------------------------------------------------------
 # ADDITIONAL DEPENDENCIES
@@ -27,7 +27,7 @@ using
 # UNIT TESTS
 # -----------------------------------------------------------------------------
 
-@testset "Rocket" begin
+@testset "Rocketeer" begin
     ## Save file name
     filepath = "my_rocket"
     ## Rocket and data hyper parameters
