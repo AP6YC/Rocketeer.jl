@@ -85,5 +85,5 @@ This documentation was built using [Documenter.jl](https://github.com/JuliaDocs/
 
 ```@example
 using Rocketeer, Dates # hide
-println("Rocketeer v$(ROCKET_VERSION) docs built $(Dates.now()) with Julia $(VERSION) on $(Sys.KERNEL)") # hide
+println("Rocketeer v$(ROCKETEER_VERSION) docs built $(Dates.now()) with Julia $(VERSION) on $(Sys.KERNEL)") # hide
 ```

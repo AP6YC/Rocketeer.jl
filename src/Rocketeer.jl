@@ -52,7 +52,7 @@ include("lib/lib.jl")
 # Export relevant names
 export
     # Constants
-    ROCKET_VERSION,
+    ROCKETEER_VERSION,
 
     # Structs
     RocketKernel,
