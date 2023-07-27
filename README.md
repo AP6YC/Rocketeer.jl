@@ -1,4 +1,4 @@
-[![rocket-header](https://github.com/AP6YC/FileStorage/blob/main/Rocket/header.png?raw=true)][docs-dev-url]
+[![rocket-header](https://github.com/AP6YC/FileStorage/blob/main/Rocketeer/header.png?raw=true)][docs-dev-url]
 
 A [Julia][julialang] implementation of the [Rocket][rocket-doi] method of using random feature kernels for time series classification.
 
@@ -10,22 +10,22 @@ This project is not programmed by the original authors of the original paper; pl
 | [![Stable][docs-stable-img]][docs-stable-url] | [![Coveralls][coveralls-img]][coveralls-url] | [![Documentation][doc-status-img]][doc-status-url] |
 
 [docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
-[docs-stable-url]: https://AP6YC.github.io/Rocket.jl/stable
+[docs-stable-url]: https://AP6YC.github.io/Rocketeer.jl/stable
 
 [docs-dev-img]: https://img.shields.io/badge/docs-dev-blue.svg
-[docs-dev-url]: https://AP6YC.github.io/Rocket.jl/dev
+[docs-dev-url]: https://AP6YC.github.io/Rocketeer.jl/dev
 
-[doc-status-img]: https://github.com/AP6YC/Rocket.jl/actions/workflows/Documentation.yml/badge.svg
-[doc-status-url]: https://github.com/AP6YC/Rocket.jl/actions/workflows/Documentation.yml
+[doc-status-img]: https://github.com/AP6YC/Rocketeer.jl/actions/workflows/Documentation.yml/badge.svg
+[doc-status-url]: https://github.com/AP6YC/Rocketeer.jl/actions/workflows/Documentation.yml
 
-[ci-img]: https://github.com/AP6YC/Rocket.jl/workflows/CI/badge.svg
-[ci-url]: https://github.com/AP6YC/Rocket.jl/actions?query=workflow%3ACI
+[ci-img]: https://github.com/AP6YC/Rocketeer.jl/workflows/CI/badge.svg
+[ci-url]: https://github.com/AP6YC/Rocketeer.jl/actions?query=workflow%3ACI
 
-[codecov-img]: https://codecov.io/gh/AP6YC/Rocket.jl/branch/main/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/AP6YC/Rocket.jl
+[codecov-img]: https://codecov.io/gh/AP6YC/Rocketeer.jl/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/AP6YC/Rocketeer.jl
 
-[coveralls-img]: https://coveralls.io/repos/github/AP6YC/Rocket.jl/badge.svg?branch=main
-[coveralls-url]: https://coveralls.io/github/AP6YC/Rocket.jl?branch=main
+[coveralls-img]: https://coveralls.io/repos/github/AP6YC/Rocketeer.jl/badge.svg?branch=main
+[coveralls-url]: https://coveralls.io/github/AP6YC/Rocketeer.jl?branch=main
 
 [julialang]: https://julialang.org/
 [rocket-doi]: https://doi.org/10.1007/s10618-020-00701-z
@@ -47,7 +47,7 @@ For detailed usage instructions, please see the [Documentation][docs-dev-url].
 
 To use the package, you must:
 
-1. Load `Rocket`,
+1. Load `Rocketeer`,
 2. Create a `RocketModule` object (with optionally specified `input_length` and `n_kernels` hyperparameters),
 3. `apply_kernels` to your dataset to extract the Rocket features,
 4. Optionally `save_rocket` and `load_rocket` if you intend to utilize the exact same kernels in future experiments.
@@ -56,7 +56,7 @@ For example:
 
 ```julia
 # Load the module
-using Rocket
+using Rocketeer
 
 # Set some parameters of the example
 filepath = "my_rocket"  # Point to a save file

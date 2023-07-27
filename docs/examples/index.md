@@ -1,6 +1,6 @@
 # [Examples](@id examples)
 
-This section contains some examples using the `Rocket.jl` package with topics ranging from how to the internals of package work to practical examples.
+This section contains some examples using the `Rocketeer.jl` package with topics ranging from how to the internals of package work to practical examples.
 
 ---
 

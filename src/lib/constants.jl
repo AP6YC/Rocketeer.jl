@@ -2,7 +2,7 @@
     constants.jl
 
 # Description
-This file contains a collection of constants used in the `Rocket.jl` package.
+This file contains a collection of constants used in the `Rocketeer.jl` package.
 """
 
 # -----------------------------------------------------------------------------
@@ -10,7 +10,7 @@ This file contains a collection of constants used in the `Rocket.jl` package.
 # -----------------------------------------------------------------------------
 
 """
-Common docstring: description of attribution for the Rocket module for inclusion in relevant docstrings.
+Common docstring: description of attribution for the Rocketeer module for inclusion in relevant docstrings.
 """
 const DOCSTRING_ATTRIBUTION = """
 # Attribution

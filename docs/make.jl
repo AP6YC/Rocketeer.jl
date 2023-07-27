@@ -2,7 +2,7 @@
     make.jl
 
 # Description
-This file builds the documentation for the `Rocket.jl` package
+This file builds the documentation for the `Rocketeer.jl` package
 using Documenter.jl and other tools.
 """
 
@@ -21,7 +21,7 @@ using
 # -----------------------------------------------------------------------------
 
 # Common variables of the script
-PROJECT_NAME = "Rocket"
+PROJECT_NAME = "Rocketeer"
 DOCS_NAME = "docs"
 
 # Fix GR headless errors
@@ -44,7 +44,7 @@ else
 end
 
 # Include the local package
-using Rocket
+using Rocketeer
 
 # using JSON
 if haskey(ENV, "DOCSARGS")
@@ -53,13 +53,12 @@ if haskey(ENV, "DOCSARGS")
     end
 end
 
-
 # -----------------------------------------------------------------------------
 # DOWNLOAD LARGE ASSETS
 # -----------------------------------------------------------------------------
 
 # Point to the raw FileStorage location on GitHub
-top_url = raw"https://media.githubusercontent.com/media/AP6YC/FileStorage/main/Rocket/"
+top_url = raw"https://media.githubusercontent.com/media/AP6YC/FileStorage/main/Rocketeer/"
 
 # List all of the files that we need to use in the docs
 files = [
@@ -122,7 +121,7 @@ isnothing(demo_assets) || (push!(assets, demo_assets))
 
 # Make the documentation
 makedocs(
-    modules=[Rocket],
+    modules=[Rocketeer],
     format=Documenter.HTML(
         prettyurls = get(ENV, "CI", nothing) == "true",
         assets = assets,
@@ -141,8 +140,8 @@ makedocs(
             "Contributing" => "man/contributing.md",
         ],
     ],
-    repo="https://github.com/AP6YC/Rocket.jl/blob/{commit}{path}#L{line}",
-    sitename="Rocket.jl",
+    repo="https://github.com/AP6YC/Rocketeer.jl/blob/{commit}{path}#L{line}",
+    sitename="Rocketeer.jl",
     authors="Sasha Petrenko",
     # assets=String[],
 )
@@ -165,7 +164,7 @@ postprocess_cb()
 # -----------------------------------------------------------------------------
 
 deploydocs(
-    repo="github.com/AP6YC/Rocket.jl.git",
+    repo="github.com/AP6YC/Rocketeer.jl.git",
     devbranch="develop",
     # push_preview = should_push_preview(),
 )
