@@ -1,6 +1,6 @@
 # Code of Conduct
 
-The `Rocket.jl` package adopts the [Berlin Code of Conduct](https://berlincodeofconduct.org/).
+The `Rocketeer.jl` package adopts the [Berlin Code of Conduct](https://berlincodeofconduct.org/).
 
 ---
 

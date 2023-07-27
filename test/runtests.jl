@@ -2,7 +2,7 @@
     runtests.jl
 
 # Description
-The entry point to unit tests for the `Rocket.jl` package.
+The entry point to unit tests for the `Rocketeer.jl` package.
 """
 
 # -----------------------------------------------------------------------------
