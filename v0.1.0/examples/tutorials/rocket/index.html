@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Rocketeer Tutorial · Rocketeer.jl</title><script data-outdated-warner src="../../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../../assets/documenter.js"></script><script src="../../../siteinfo.js"></script><script src="../../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../../assets/themeswap.js"></script><link href="../../../assets/favicon.ico" rel="icon" type="image/x-icon"/><link href="../../../democards/gridtheme.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../../../"><img src="../../../assets/logo.png" alt="Rocketeer.jl logo"/></a><div class="docs-package-name"><span class="docs-autofit"><a href="../../../">Rocketeer.jl</a></span></div><form class="docs-search" action="../../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../../">Home</a></li><li><span class="tocitem">Manual</span><ul><li><a class="tocitem" href="../../../man/guide/">Guide</a></li><li><a class="tocitem" href="../../">Examples</a></li></ul></li><li><span class="tocitem">Internals</span><ul><li><a class="tocitem" href="../../../man/full-index/">Index</a></li><li><a class="tocitem" href="../../../man/dev-index/">Dev Index</a></li><li><a class="tocitem" href="../../../man/contributing/">Contributing</a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Rocketeer Tutorial</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Rocketeer Tutorial</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/AP6YC/Rocketeer.jl/blob/develop/docs/examples/tutorials/rocket.jl" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="rocket-tutorial"><a class="docs-heading-anchor" href="#rocket-tutorial">Rocketeer Tutorial</a><a id="rocket-tutorial-1"></a><a class="docs-heading-anchor-permalink" href="#rocket-tutorial" title="Permalink"></a></h1><p><a href="../rocket.jl"><img src="https://img.shields.io/badge/download-julia-brightgreen.svg" alt="Source code"/></a> <a href="https://nbviewer.jupyter.org/github/AP6YC/Rocketeer.jl/blob/gh-pages/v0.1.0/examples/tutorials/rocket.ipynb"><img src="https://img.shields.io/badge/show-nbviewer-579ACA.svg" alt="notebook"/></a> <img src="https://img.shields.io/badge/julia-1.9.0-blue.svg" alt="compat"/> <a href="https://github.com/AP6YC"><img src="https://img.shields.io/badge/Author-Sasha%20Petrenko-blue" alt="Author"/></a> <img src="https://img.shields.io/date/1689897600" alt="Update time"/></p><h2 id="Overview"><a class="docs-heading-anchor" href="#Overview">Overview</a><a id="Overview-1"></a><a class="docs-heading-anchor-permalink" href="#Overview" title="Permalink"></a></h2><p>This demo shows how to get started with <code>Rocketeer.jl</code>.</p><h2 id="Setup"><a class="docs-heading-anchor" href="#Setup">Setup</a><a id="Setup-1"></a><a class="docs-heading-anchor-permalink" href="#Setup" title="Permalink"></a></h2><p>First, we load the package in the usual manner with <code>using</code></p><pre><code class="language-julia hljs">using Rocketeer</code></pre><p>Lets also declare a file name for saving the Rocket kernels along with some other script variables</p><pre><code class="language-julia hljs"># Save file name
+filepath = &quot;my_rocket&quot;
+# Rocket and data hyper parameters
+input_length = 20
+n_kernels = 200</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">200</code></pre><h2 id="Create-a-RocketModule"><a class="docs-heading-anchor" href="#Create-a-RocketModule">Create a <code>RocketModule</code></a><a id="Create-a-RocketModule-1"></a><a class="docs-heading-anchor-permalink" href="#Create-a-RocketModule" title="Permalink"></a></h2><p>The hyperparameters of a <code>RocketModule</code> are the <code>input_length</code> of the features and the <code>n_kernels</code> number of kernels that we want to generate. To create a <code>RocketModule</code>, we have two constructors: one where we specify these two parameters, and one where we use the default values. Lets try out both:</p><pre><code class="language-julia hljs"># Create a default rocket module
+my_rocket = RocketModule()
+
+# Specify the hyperparameters
+my_specific_rocket = RocketModule(input_length, n_kernels)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">RocketModule(input_length=20, n_kernels=200)</code></pre><p>We can save the Rocket kernels for later use:</p><pre><code class="language-julia hljs"># Save the module to the filepath
+save_rocket(my_specific_rocket, filepath)</code></pre><p>and we can load them back up into a new object:</p><pre><code class="language-julia hljs"># Load the rocket module
+my_new_rocket = load_rocket(filepath)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">RocketModule(input_length=20, n_kernels=200)</code></pre><p>We can see here that the we got back the same <code>RocketModule</code> as the one we created in <code>my_specific_rocket</code>.</p><h2 id="Extract-Kernel-Features"><a class="docs-heading-anchor" href="#Extract-Kernel-Features">Extract Kernel Features</a><a id="Extract-Kernel-Features-1"></a><a class="docs-heading-anchor-permalink" href="#Extract-Kernel-Features" title="Permalink"></a></h2><p>Lets generate some random raw input data for applying the kernels to:</p><pre><code class="language-julia hljs">X = rand(input_length)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">20-element Vector{Float64}:
+ 0.8169584733307458
+ 0.6819026479244299
+ 0.8368429370080692
+ 0.7190978040786379
+ 0.19654792034750723
+ 0.654506130861331
+ 0.4330611350508612
+ 0.42697984938597744
+ 0.06311993867909294
+ 0.699763096566928
+ 0.9459242201073087
+ 0.37751227763417106
+ 0.7809113451716845
+ 0.6903187632151445
+ 0.8331633612887372
+ 0.42328044424522826
+ 0.7862644768601361
+ 0.29993250707797803
+ 0.9303847192366319
+ 0.450578757288042</code></pre><p>and apply the kernels on that data to extract a set of features:</p><pre><code class="language-julia hljs">kernel_features = apply_kernels(my_new_rocket, X)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">200×2 Matrix{Float64}:
+ 0.0      -0.712663
+ 1.05      4.03624
+ 1.05      1.89944
+ 1.05      0.248912
+ 1.07143   3.2568
+ 0.0      -0.15322
+ 0.0      -0.734874
+ 0.05      0.671702
+ 1.05      2.35081
+ 0.85      0.695863
+ ⋮        
+ 0.2       0.136794
+ 0.0      -0.442147
+ 0.0      -0.687769
+ 0.7       0.666017
+ 0.6       0.385262
+ 0.0      -0.812972
+ 0.8       1.54169
+ 1.05      0.926417
+ 0.9       1.3841</code></pre><p>And voila, it&#39;s as easy as that! We have some features to use for analysis or otherwise some good old time series classification with other machine learning models.</p><p>Just to make sure to be thorough, we sill end this script by deleting the generated rocket save file.</p><pre><code class="language-julia hljs"># Delete the saved file
+rm(filepath)</code></pre><hr/><p><em>This page was generated using <a href="https://github.com/johnnychen94/DemoCards.jl">DemoCards.jl</a> and <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.25 on <span class="colophon-date" title="Sunday 30 July 2023 22:52">Sunday 30 July 2023</span>. Using Julia version 1.9.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
