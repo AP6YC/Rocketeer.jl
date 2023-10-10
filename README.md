@@ -4,10 +4,32 @@ A [Julia][julialang] implementation of the [Rocket][rocket-doi] method of using 
 
 This project is not programmed by the original authors of the original paper; please see the [Attribution](#attribution) section for more details on the original paper and software.
 
-| **Documentation** | **Coverage** | **CI Status** |
-|:-----------------:|:------------:|:-------------:|
-| [![Dev][docs-dev-img]][docs-dev-url] | [![Codecov][codecov-img]][codecov-url] | [![CI Status][ci-img]][ci-url] |
-| [![Stable][docs-stable-img]][docs-stable-url] | [![Coveralls][coveralls-img]][coveralls-url] | [![Documentation][doc-status-img]][doc-status-url] |
+| **Documentation** | **Coverage** | **CI Status** | **Releases** |
+|:-----------------:|:------------:|:-------------:|:-----------:|
+| [![Dev][docs-dev-img]][docs-dev-url] | [![Codecov][codecov-img]][codecov-url] | [![CI Status][ci-img]][ci-url] | [![Zenodo][zenodo-img]][zenodo-url] |
+| [![Stable][docs-stable-img]][docs-stable-url] | [![Coveralls][coveralls-img]][coveralls-url] | [![Documentation][doc-status-img]][doc-status-url] | [![version][version-img]][version-url] |
+| **Dependents** | **Issues** | **JuliaHub Status** | **Downloads** |
+| [![deps][deps-img]][deps-url] | [![GitHubIssues][issues-img]][issues-url] | [![JuliaHub][pkgeval-img]][pkgeval-url] | [![Downloads][downloads-img]][downloads-url] |
+
+[version-img]: https://juliahub.com/docs/General/Rocketeer/stable/version.svg
+[version-url]: https://juliahub.com/ui/Packages/General/Rocketeer
+
+[deps-img]: https://juliahub.com/docs/General/Rocketeer/stable/deps.svg
+[deps-url]: https://juliahub.com/ui/Packages/General/Rocketeer?t=2
+
+[downloads-img]: https://shields.io/endpoint?url=https://pkgs.genieframework.com/api/v1/badge/Rocketeer
+[downloads-url]: https://pkgs.genieframework.com?packages=Rocketeer
+
+[issues-img]: https://img.shields.io/github/issues/AP6YC/Rocketeer.jl
+[issues-url]: https://github.com/AP6YC/Rocketeer.jl/issues
+
+[zenodo-img]: https://zenodo.org/badge/DOI/10.5281/zenodo.8197847.svg
+[zenodo-url]: https://doi.org/10.5281/zenodo.8197847
+
+https://doi.org/10.5281/zenodo.8197847
+
+[pkgeval-img]: https://juliahub.com/docs/Rocketeer/pkgeval.svg
+[pkgeval-url]: https://juliahub.com/ui/Packages/Rocketeer
 
 [docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
 [docs-stable-url]: https://AP6YC.github.io/Rocketeer.jl/stable
