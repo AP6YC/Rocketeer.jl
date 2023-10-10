@@ -26,4 +26,3 @@ kernel_features = apply_kernels(my_new_rocket, X)
 rm(filepath)
 
 # This file was generated using Literate.jl, https://github.com/fredrikekre/Literate.jl
-
