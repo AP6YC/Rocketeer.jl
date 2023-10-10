@@ -26,8 +26,6 @@ This project is not programmed by the original authors of the original paper; pl
 [zenodo-img]: https://zenodo.org/badge/DOI/10.5281/zenodo.8197847.svg
 [zenodo-url]: https://doi.org/10.5281/zenodo.8197847
 
-https://doi.org/10.5281/zenodo.8197847
-
 [pkgeval-img]: https://juliahub.com/docs/Rocketeer/pkgeval.svg
 [pkgeval-url]: https://juliahub.com/ui/Packages/Rocketeer
 
