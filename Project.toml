@@ -18,7 +18,7 @@ DocStringExtensions = "0.9"
 JLD2 = "0.4"
 NumericalTypeAliases = "0.2"
 PrecompileSignatures = "3"
-StatsBase = "0.34"
+StatsBase = "0.33, 0.34"
 Pkg = "1"
 julia = "1"
 
