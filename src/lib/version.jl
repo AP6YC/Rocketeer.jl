@@ -5,7 +5,7 @@
 Borrowed from MLJ.jl, this defines the version of the package as a constant in the module.
 
 # Authors
-- Sasha Petrenko <petrenkos@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu> [@AP6YC](https://github.com/AP6YC)
 
 # Credits
 - MLJ.jl: https://github.com/alan-turing-institute/MLJ.jl

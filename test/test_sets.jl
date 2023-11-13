@@ -61,6 +61,10 @@ using
         # Verify dimension of the features
         @assert size(features) == (100, 2)
         @assert size(features_specific) == (n_kernels, 2)
+
+        # Use the default show function to display the Rocket module and a kernel
+        show(my_rocket)
+        show(my_rocket.kernels[1])
     finally
         # Remove the save file
         rm(filepath)

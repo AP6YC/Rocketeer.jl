@@ -5,7 +5,7 @@
 Convenience script that serves the locally built documentation.
 
 # Authors
-- Sasha Petrenko <petrenkos@mst.edu>
+- Sasha Petrenko <petrenkos@mst.edu> [@AP6YC](https://github.com/AP6YC)
 """
 
 # -----------------------------------------------------------------------------
