@@ -131,11 +131,16 @@ Apply a single [`RocketKernel`](@ref) to the sequence `x`.
 - `x::RealVector`: data sequence for computing Rocket features.
 """
 function apply_kernel(kernel::RocketKernel, x::RealVector)
-    input_length = length(x)
-    output_length = (input_length + (2 * kernel.padding)) - ((kernel.length - 1) * kernel.dilation)
+    # Initialize output Rocket features
     _ppv = 0
     _max = -Inf
+
+    # Get the sliding window range for computing features
+    input_length = length(x)
+    output_length = (input_length + (2 * kernel.padding)) - ((kernel.length - 1) * kernel.dilation)
     ending = (input_length + kernel.padding) - ((kernel.length - 1) * kernel.dilation)
+
+    # Iterate across the sliding window indices
     for i = -kernel.padding:ending
         _sum = kernel.bias
         index = i
@@ -150,6 +155,8 @@ function apply_kernel(kernel::RocketKernel, x::RealVector)
             _ppv += 1
         end
     end
+
+    # Return the Rocket features as a concatenated vector
     return [_ppv / output_length, _max]
 end
 
@@ -186,6 +193,9 @@ Save the [`RocketModule`](@ref) parameters to a `.jld2` file.
 function save_rocket(rocket::RocketModule, filepath::AbstractString="rocket.jld2")
     # Use the JLD2 save_object for simplicity
     save_object(filepath, rocket)
+
+    # Explicit empty return
+    return
 end
 
 """
@@ -211,7 +221,11 @@ Overload of the show function for [`RocketKernel`](@ref).
 - `kernel::RocketKernel`: the [`RocketKernel`](@ref) to print/display.
 """
 function Base.show(io::IO, kernel::RocketKernel)
-    print(io, "$(typeof(kernel))")
+    # Display basic parameters of the single Rocket kernel
+    print(io, "$(typeof(kernel))(length=$(kernel.length))")
+
+    # Explicit empty return
+    return
 end
 
 """
@@ -222,6 +236,9 @@ Overload of the show function for [`RocketModule`](@ref).
 - `rocket::RocketModule`: the [`RocketModule`](@ref) to print/display.
 """
 function Base.show(io::IO, rocket::RocketModule)
-    # print(io, "$(typeof(node))($(length(node.N)))")
+    # Display basic parameters of the entire Rocket module
     print(io, "$(typeof(rocket))(input_length=$(rocket.input_length), n_kernels=$(length(rocket.kernels)))")
+
+    # Explicit empty return
+    return
 end
