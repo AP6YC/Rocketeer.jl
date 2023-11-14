@@ -2,7 +2,7 @@ name = "Rocketeer"
 uuid = "5e8e706b-2fa9-4c18-afb5-213c5db89150"
 authors = ["Sasha Petrenko <sap625@mst.edu>"]
 description = "A Julia package for the Rocket method of using random feature kernels for time series classification."
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
