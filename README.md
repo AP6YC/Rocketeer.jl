@@ -105,7 +105,7 @@ features = apply_kernels(my_new_rocket, X)
 
 This Julia package is programmed by:
 
-- Sasha Petrenko <petrenkos@mst.edu> @AP6YC
+- Sasha Petrenko <petrenkos@mst.edu> [@AP6YC](https://github.com/AP6YC)
 
 The original paper is authored by:
 
