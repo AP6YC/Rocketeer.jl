@@ -7,21 +7,12 @@ This file loads common utilities and aggregates all other unit tests files.
 """
 
 # -----------------------------------------------------------------------------
-# PREAMBLE
-# -----------------------------------------------------------------------------
-
-## Load the modules into the current context
-using
-    JLD2,       # for saving and loading
-    Rocketeer      # this package
-
-# -----------------------------------------------------------------------------
-# ADDITIONAL DEPENDENCIES
+#  DEPENDENCIES
 # -----------------------------------------------------------------------------
 
 using
-    Logging,
-    Test
+    Rocketeer,      # This package
+    Logging         # @info, etc.
 
 # -----------------------------------------------------------------------------
 # UNIT TESTS
@@ -63,8 +54,15 @@ using
         @assert size(features_specific) == (n_kernels, 2)
 
         # Use the default show function to display the Rocket module and a kernel
+        @info "Showing the Rocket module:\n"
         show(my_rocket)
+        println("\n")
+
+        @info "Showing a single Rocket kernel:\n"
         show(my_rocket.kernels[1])
+        println("\n")
+
+        @info "Done testing!"
     finally
         # Remove the save file
         rm(filepath)
