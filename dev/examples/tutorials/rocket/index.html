@@ -10,224 +10,224 @@ my_rocket = RocketModule()
 my_specific_rocket = RocketModule(input_length, n_kernels)</code></pre><pre><code class="nohighlight hljs">RocketModule(input_length=20, n_kernels=200)</code></pre><p>We can save the Rocket kernels for later use:</p><pre><code class="language-julia hljs"># Save the module to the filepath
 save_rocket(my_specific_rocket, filepath)</code></pre><p>and we can load them back up into a new object:</p><pre><code class="language-julia hljs"># Load the rocket module
 my_new_rocket = load_rocket(filepath)</code></pre><pre><code class="nohighlight hljs">RocketModule(input_length=20, n_kernels=200)</code></pre><p>We can see here that the we got back the same <code>RocketModule</code> as the one we created in <code>my_specific_rocket</code>.</p><h2 id="Extract-Kernel-Features"><a class="docs-heading-anchor" href="#Extract-Kernel-Features">Extract Kernel Features</a><a id="Extract-Kernel-Features-1"></a><a class="docs-heading-anchor-permalink" href="#Extract-Kernel-Features" title="Permalink"></a></h2><p>Lets generate some random raw input data for applying the kernels to:</p><pre><code class="language-julia hljs">X = rand(input_length)</code></pre><pre><code class="nohighlight hljs">20-element Vector{Float64}:
- 0.9940483426189097
- 0.045063771533297214
- 0.44485770165136784
- 0.7690451753133185
- 0.13907596408818024
- 0.6901562085087198
- 0.2994848714956434
- 0.3541681521159471
- 0.4588584043774637
- 0.533657705163702
- 0.7385382229323615
- 0.38284556188224705
- 0.3917911279761107
- 0.6679343755423132
- 0.4940214058341834
- 0.42039013245059553
- 0.07929204117503752
- 0.8423420296791501
- 0.5674309027917369
- 0.6749126254975968</code></pre><p>and apply the kernels on that data to extract a set of features:</p><pre><code class="language-julia hljs">kernel_features = apply_kernels(my_new_rocket, X)</code></pre><pre><code class="nohighlight hljs">200×2 Matrix{Float64}:
- 1.05        2.05561
- 0.3         0.582585
- 1.0         1.71113
- 0.3         0.6512
- 1.05        2.52516
- 0.4         0.283063
- 0.0        -0.013672
- 0.2         0.479836
- 0.3         0.822182
- 1.05        5.66794
- 0.85        4.25965
- 0.0        -0.253969
- 0.0        -0.024111
- 0.0        -0.224115
- 0.8         2.25656
- 0.75        1.20062
- 0.4         1.18582
- 0.8         2.88022
- 0.0        -0.095459
- 1.05        0.866868
- 1.0         0.866235
- 0.25        0.690479
- 0.0        -0.639191
- 1.07143     2.42727
- 0.0        -0.113831
- 0.0        -0.657082
- 0.25        0.668633
- 0.833333    0.839521
- 0.95        3.75162
- 0.1         0.01411
- 1.05        1.70257
- 1.05        0.811233
- 0.0        -0.559743
- 0.0        -0.981885
- 1.05        1.64488
- 1.05        3.1484
- 0.25        0.206071
- 1.05        5.33645
- 1.05        1.30247
- 0.0        -0.430723
- 1.05        4.05279
- 0.25        0.360737
- 0.15        0.361941
- 0.8         2.51708
- 0.45        0.929865
- 0.0        -0.495715
- 0.0        -0.496543
- 0.8         3.21465
- 0.2         0.367544
- 0.75        0.869038
- 0.0        -0.0978751
- 0.75        1.72581
- 0.0        -0.00885696
- 0.428571    2.35227
- 1.05        3.94977
- 1.05        2.15665
- 1.05        4.34064
- 1.05        1.59699
- 0.0714286   0.239841
- 0.1         0.0195373
- 0.0        -0.569425
- 0.0        -0.579588
- 0.5         0.94235
- 0.25        0.772794
- 1.05        4.6877
- 1.05        5.53899
- 0.2         0.37106
- 0.5         1.15587
- 0.857143    1.08406
- 0.85        3.34239
- 0.0        -0.688838
- 1.07143     2.02969
- 0.4         0.807244
- 0.25        0.59794
- 1.08333     2.39552
- 1.05        4.16847
- 1.05        0.752008
- 0.9         0.753084
- 0.25        0.313545
- 1.05        1.61929
- 0.2         1.14638
- 0.05        0.133292
- 0.95        3.37126
- 1.05        0.655967
- 1.0         1.19946
- 0.75        0.570333
- 0.25        0.24651
- 1.05        0.805106
- 1.05        1.55608
- 0.0        -0.779633
- 0.0        -0.743244
- 1.0         3.47815
- 1.05        1.45368
- 1.05        1.57634
- 1.05        2.58593
- 0.0        -0.269627
- 0.1         0.149512
- 0.0        -0.4406
- 0.0        -0.687399
- 0.0        -0.64812
- 1.05        5.14408
- 0.0        -3.09285
- 0.95        1.92589
- 0.85        4.00938
- 0.0        -0.622481
- 0.0        -0.675149
- 1.0         0.188048
- 0.0        -0.603609
- 0.214286    0.221715
- 1.05        3.34699
- 0.85        7.51305
- 0.357143    1.51289
- 0.7         0.474638
- 0.0        -0.568975
- 0.0        -0.622389
- 0.3         0.358089
- 0.25        0.505432
- 0.0        -0.78412
- 0.55        0.477427
- 0.85        2.68311
- 0.15        0.256941
- 1.05        2.16247
- 1.08333     3.33866
- 0.0        -0.366023
- 0.8         1.86807
- 0.4         0.793393
- 0.85        3.53026
- 0.9         3.43676
- 0.75        1.34241
- 0.0        -0.652057
- 1.05        1.75309
- 0.714286    0.495268
- 0.25        0.655579
- 0.833333    1.83691
- 1.05        0.93705
- 0.1         0.102229
- 0.25        0.613157
- 1.0         2.81194
- 0.0        -0.049031
- 1.05        5.5444
- 0.9         2.84542
- 1.05        5.73135
- 1.07143     3.37468
- 1.07143     4.19505
- 0.2         0.324054
- 1.05        3.50648
- 0.3         0.556686
- 1.07143     5.1139
- 0.0        -1.06264
- 0.7         0.745116
- 1.05        0.155153
- 0.1         1.30017
- 0.25        0.845678
- 0.85        1.72105
- 0.0        -0.765773
- 0.6         1.14237
- 0.928571    1.44298
- 1.05        7.05741
- 0.0        -0.061411
- 1.05        4.10003
- 0.0        -0.590532
- 0.214286    0.207917
- 0.0        -0.448534
- 0.0        -0.283871
- 1.05        0.644058
- 0.15        0.247924
- 0.833333    1.59127
- 0.0        -0.775591
- 1.05        0.552272
- 0.25        0.896264
- 0.0        -0.351667
- 0.05        0.786404
- 0.0        -0.880992
- 0.95        4.28344
- 1.05        8.13285
- 0.45        0.418934
- 0.0        -0.471287
- 0.0        -0.0354287
- 1.0         1.80394
- 0.0        -0.586305
- 0.928571    1.73107
- 0.25        0.888526
- 0.0        -1.51417
- 0.0        -0.437724
- 0.25        0.421755
- 0.0        -0.884103
- 1.05        3.70481
- 0.0        -0.52429
- 1.07143     3.23904
- 1.05        3.21245
- 0.8         1.08593
- 1.05        1.80848
- 1.05        1.24475
- 0.0        -0.0397675
- 0.95        4.43734
- 0.3         0.141229
- 0.5         3.16161
- 1.07143     3.35189
- 1.05        1.62643
- 0.15        0.214838</code></pre><p>And voila, it&#39;s as easy as that! We have some features to use for analysis or otherwise some good old time series classification with other machine learning models.</p><p>Just to make sure to be thorough, we sill end this script by deleting the generated rocket save file.</p><pre><code class="language-julia hljs"># Delete the saved file
-rm(filepath)</code></pre><hr/><p><em>This page was generated using <a href="https://github.com/JuliaDocs/DemoCards.jl">DemoCards.jl</a> and <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.2.1 on <span class="colophon-date" title="Wednesday 17 January 2024 22:56">Wednesday 17 January 2024</span>. Using Julia version 1.9.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+ 0.5886734275706309
+ 0.9140479719885255
+ 0.011231664369796612
+ 0.3179924316523788
+ 0.40324184921190165
+ 0.3598552496250973
+ 0.7190104915430542
+ 0.40555246607181017
+ 0.33394228007858906
+ 0.47613437501802147
+ 0.02473754806710715
+ 0.006285690594608262
+ 0.5506840278830909
+ 0.7710555406339396
+ 0.3749034936262281
+ 0.6814459617536163
+ 0.3901782346168584
+ 0.26427457781168595
+ 0.8208964576174603
+ 0.8586049843758498</code></pre><p>and apply the kernels on that data to extract a set of features:</p><pre><code class="language-julia hljs">kernel_features = apply_kernels(my_new_rocket, X)</code></pre><pre><code class="nohighlight hljs">200×2 Matrix{Float64}:
+ 1.07143     2.92752
+ 0.85        2.73383
+ 1.05        2.21629
+ 0.65        0.995156
+ 0.85        2.78753
+ 0.0        -0.895985
+ 0.9         3.5096
+ 0.8         3.94567
+ 0.85        1.83747
+ 1.05        3.12375
+ 0.7         0.869095
+ 0.8         4.36141
+ 0.9         0.180384
+ 0.25        0.0617199
+ 0.8         2.64959
+ 0.0714286   0.0251424
+ 0.1         0.133233
+ 0.0        -0.823499
+ 0.95        5.01873
+ 0.25        0.639857
+ 1.05        0.392643
+ 0.25        0.581972
+ 0.8         3.86115
+ 1.07143     1.56315
+ 1.05        2.48934
+ 0.0        -0.476952
+ 0.25        0.342009
+ 0.25        0.799044
+ 0.214286    0.293144
+ 0.0        -0.368553
+ 1.05        2.35556
+ 0.0        -0.0699851
+ 0.95        0.950048
+ 0.0        -0.17517
+ 0.8         0.715643
+ 0.55        1.85262
+ 0.1         0.923574
+ 0.8         5.63254
+ 0.0833333   0.44305
+ 1.05        2.64029
+ 0.45        3.01416
+ 0.0        -0.972623
+ 0.0        -0.527848
+ 0.3         0.794078
+ 0.428571    0.973192
+ 0.35        0.880583
+ 0.0        -0.32125
+ 0.75        1.33675
+ 0.714286    1.66617
+ 0.285714    0.664618
+ 0.8         4.21961
+ 0.45        1.3432
+ 1.05        1.77001
+ 0.25        0.216239
+ 0.75        1.75648
+ 0.0        -0.341118
+ 0.25        0.178655
+ 0.65        0.783587
+ 1.05        0.569415
+ 1.05        5.28885
+ 0.0        -0.379904
+ 0.0        -0.580484
+ 0.0        -0.108226
+ 0.5         1.21669
+ 0.0        -0.528077
+ 0.25        0.128362
+ 0.8         0.61361
+ 0.0        -0.757852
+ 0.8         2.75859
+ 1.05        1.19995
+ 1.05        2.34157
+ 0.5         1.60154
+ 0.2         0.327674
+ 0.8         1.13418
+ 1.08333     3.72512
+ 0.9         0.859092
+ 0.8         3.05481
+ 0.15        0.177194
+ 0.0        -1.87179
+ 1.0         2.33486
+ 0.8         3.22955
+ 0.8         0.322272
+ 0.0        -0.515132
+ 0.0        -0.100427
+ 0.0        -0.642468
+ 0.0        -0.436152
+ 1.05        4.76372
+ 0.0        -0.779867
+ 1.05        1.4763
+ 0.95        1.52889
+ 0.75        1.95848
+ 0.0714286   0.00779897
+ 0.25        0.237163
+ 0.214286    0.109531
+ 0.65        1.79892
+ 1.05        0.885461
+ 1.05        5.4089
+ 1.05        2.58488
+ 0.85        2.05541
+ 0.75        1.36738
+ 1.05        2.81081
+ 1.05        1.17142
+ 0.75        0.672156
+ 0.25        0.240665
+ 0.0        -0.885407
+ 0.05        0.38182
+ 0.0        -0.101527
+ 0.0        -0.52577
+ 0.25        1.4521
+ 1.05        2.73806
+ 0.0        -0.199792
+ 0.0        -0.148737
+ 1.05        1.37511
+ 0.3         0.245783
+ 0.25        0.337854
+ 0.0        -0.971994
+ 1.05        0.680884
+ 0.0        -0.649023
+ 0.0        -0.100975
+ 0.0        -0.969692
+ 0.75        0.917556
+ 0.0        -0.790228
+ 1.05        5.25039
+ 0.0        -0.0811606
+ 0.05        0.057731
+ 0.0        -0.503672
+ 1.05        1.07375
+ 0.0        -0.15592
+ 1.05        0.637034
+ 1.05        0.835038
+ 0.0        -0.14604
+ 0.0        -0.884843
+ 0.8         2.88339
+ 0.0        -0.520909
+ 1.05        3.26158
+ 0.0        -0.128164
+ 0.7         0.727635
+ 0.8         0.962962
+ 0.25        0.832943
+ 0.8         4.25751
+ 1.05        0.602895
+ 1.08333     2.31007
+ 1.05        1.1582
+ 0.25        0.526129
+ 0.7         2.18342
+ 1.05        1.09117
+ 0.25        0.960077
+ 1.05        2.27178
+ 0.0        -0.555734
+ 0.1         0.892308
+ 0.4         0.530885
+ 0.8         1.96481
+ 0.0        -0.033379
+ 0.3         0.296205
+ 0.928571    2.21677
+ 0.25        0.518287
+ 1.05        3.16552
+ 0.55        1.29333
+ 0.25        0.652404
+ 1.05        1.05257
+ 1.05        0.705626
+ 1.05        5.2066
+ 0.5         0.876695
+ 0.714286    1.04162
+ 0.3         0.723255
+ 1.05        2.80223
+ 1.05        3.21605
+ 1.05        0.273947
+ 1.05        2.94487
+ 0.0        -0.160502
+ 0.0        -0.355695
+ 1.05        3.38724
+ 0.0        -0.561868
+ 1.05        1.18983
+ 0.416667    1.22834
+ 0.0        -0.416562
+ 0.0        -0.465136
+ 0.0        -1.44674
+ 1.05        3.54162
+ 0.25        0.183243
+ 1.0         2.46429
+ 1.05        0.684478
+ 1.07143     2.35424
+ 1.05        0.502172
+ 1.05        0.882891
+ 0.4         1.01622
+ 1.05        0.751966
+ 0.0        -0.819469
+ 0.25        0.427476
+ 0.0        -0.437186
+ 0.45        0.847074
+ 0.25        0.166019
+ 0.3         0.629973
+ 0.65        1.17387
+ 0.25        0.387217
+ 0.25        0.293577
+ 1.05        1.74296
+ 1.05        6.12142
+ 1.05        1.94703
+ 1.05        0.81653</code></pre><p>And voila, it&#39;s as easy as that! We have some features to use for analysis or otherwise some good old time series classification with other machine learning models.</p><p>Just to make sure to be thorough, we sill end this script by deleting the generated rocket save file.</p><pre><code class="language-julia hljs"># Delete the saved file
+rm(filepath)</code></pre><hr/><p><em>This page was generated using <a href="https://github.com/JuliaDocs/DemoCards.jl">DemoCards.jl</a> and <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a>.</em></p></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.2.1 on <span class="colophon-date" title="Wednesday 17 January 2024 23:33">Wednesday 17 January 2024</span>. Using Julia version 1.9.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
