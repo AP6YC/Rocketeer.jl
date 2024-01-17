@@ -56,7 +56,10 @@ jobs:
         with:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
-      - uses: julia-actions/cache@v1
+      - name: Cache Julia Dependencies
+        uses: julia-actions/cache@v1
+        with:
+          cache-name: julia-cache;workflow=${{ github.workflow }};hash=${{ hashFiles('Project.toml') }};
       - uses: julia-actions/julia-buildpkg@latest
       - run: |
           git config --global user.name Tester
