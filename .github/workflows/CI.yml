@@ -7,6 +7,12 @@ on:
     branches: [main]
     tags: ["*"]
   pull_request:
+
+# needed to allow julia-actions/cache to delete old caches that it has created
+permissions:
+  actions: write
+  contents: read
+
 jobs:
   test:
     name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
@@ -45,22 +51,12 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
-      - uses: actions/cache@v3
-        env:
-          cache-name: cache-artifacts
-        with:
-          path: ~/.julia/artifacts
-          key: ${{ runner.os }}-${{ matrix.arch }}-test-${{ env.cache-name }}-${{ hashFiles('**/Project.toml') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.arch }}-test-${{ env.cache-name }}-
-            ${{ runner.os }}-${{ matrix.arch }}-test-
-            ${{ runner.os }}-${{ matrix.arch }}-
-            ${{ runner.os }}-
+      - uses: julia-actions/cache@v1
       - uses: julia-actions/julia-buildpkg@latest
       - run: |
           git config --global user.name Tester
