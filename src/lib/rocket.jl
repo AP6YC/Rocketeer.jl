@@ -86,7 +86,8 @@ function RocketModule(input_length::Integer, n_kernels::Integer)
         _bias = rand() * 2 - 1
         _dilation = Integer(floor(rand() * log2((input_length - 1) / (_length - 1))))
         _padding = Bool(rand(0:1)) ? Integer(floor(((_length - 1) * _dilation) / 2)) : 0
-        # Create the kernel
+
+        # Construct the kernel
         _kernel = RocketKernel(
             _length,
             _weight,
@@ -94,10 +95,12 @@ function RocketModule(input_length::Integer, n_kernels::Integer)
             _dilation,
             _padding
         )
+
+        # Add the local kernel to the list of kernels
         push!(kernels, _kernel)
     end
 
-    # Return the constructed Rocket module
+    # Return the constructed Rocket module from the
     return RocketModule(
         input_length,
         kernels,
