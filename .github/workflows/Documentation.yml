@@ -8,6 +8,11 @@ on:
     tags: '*'
   pull_request:
 
+# needed to allow julia-actions/cache to delete old caches that it has created
+permissions:
+  actions: write
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,16 +20,21 @@ jobs:
       # Cancel ongoing documentation build if pushing to branch again before the previous
       # build is finished.
       - name: Cancel ongoing documentation builds for previous commits
-        uses: styfle/cancel-workflow-action@0.9.1
+        uses: styfle/cancel-workflow-action@0.11.0
         with:
           access_token: ${{ github.token }}
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           lfs: 'true'
+      - name: Cache Julia Dependencies
+        uses: julia-actions/cache@v1
+        with:
+          cache-name: julia-cache;workflow=${{ github.workflow }};hash=${{ hashFiles('**/Project.toml') }};
       - uses: julia-actions/setup-julia@latest
         with:
-          version: '1.9'
+          # Latest Julia version
+          version: "1"
       - name: Install dependencies
         run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
       - name: Build and deploy
