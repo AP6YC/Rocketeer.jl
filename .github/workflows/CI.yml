@@ -4,9 +4,17 @@ on:
 # schedule:
 #   - cron: '0 2 * * *'  # Daily at 2 AM UTC (8 PM CST)
   push:
-    branches: [main]
+    branches:
+      - main
+      - develop
     tags: ["*"]
   pull_request:
+
+# # needed to allow julia-actions/cache to delete old caches that it has created
+# permissions:
+#   actions: write
+#   contents: read
+
 jobs:
   test:
     name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
@@ -19,11 +27,11 @@ jobs:
           - "1"    # Latest Release
         os:
           - ubuntu-latest
-          # - macOS-latest
-          # - windows-latest
+          - macOS-latest
+          - windows-latest
         arch:
           - x64
-          # - x86
+          - x86
         exclude:
           # Exclude 32-bit macOS due to Julia support
           - os: macOS-latest
@@ -45,22 +53,15 @@ jobs:
         with:
           access_token: ${{ github.token }}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
-      - uses: actions/cache@v3
-        env:
-          cache-name: cache-artifacts
+      - name: Cache Julia Dependencies
+        uses: julia-actions/cache@v1
         with:
-          path: ~/.julia/artifacts
-          key: ${{ runner.os }}-${{ matrix.arch }}-test-${{ env.cache-name }}-${{ hashFiles('**/Project.toml') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.arch }}-test-${{ env.cache-name }}-
-            ${{ runner.os }}-${{ matrix.arch }}-test-
-            ${{ runner.os }}-${{ matrix.arch }}-
-            ${{ runner.os }}-
+          cache-name: julia-cache;workflow=${{ github.workflow }};hash=${{ hashFiles('Project.toml') }};
       - uses: julia-actions/julia-buildpkg@latest
       - run: |
           git config --global user.name Tester
