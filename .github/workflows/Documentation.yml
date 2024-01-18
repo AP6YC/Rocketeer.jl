@@ -8,11 +8,6 @@ on:
     tags: '*'
   pull_request:
 
-# needed to allow julia-actions/cache to delete old caches that it has created
-permissions:
-  actions: write
-  contents: read
-
 jobs:
   build:
     runs-on: ubuntu-latest
